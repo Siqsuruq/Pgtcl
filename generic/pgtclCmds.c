@@ -629,6 +629,7 @@ int build_param_array(Tcl_Interp *interp, int nParams, Tcl_Obj *CONST objv[], co
 	}
 
 	*paramValuesPtr = paramValues;
+	ckfree(paramLengths);
 
 	return TCL_OK;
 }

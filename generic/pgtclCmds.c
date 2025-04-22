@@ -2928,6 +2928,7 @@ static int expand_parameters(Tcl_Interp *interp, const char *queryString, int nP
 	// Normal return, push parameters and return OK.
 	*paramValuesPtr = paramValues;
 	*newQueryStringPtr = newQueryString;
+	ckfree(paramLengths);
 	return TCL_OK;
 
 error_return:

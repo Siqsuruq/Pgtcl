@@ -629,6 +629,7 @@ int build_param_array(Tcl_Interp *interp, int nParams, Tcl_Obj *CONST objv[], co
 	}
 
 	*paramValuesPtr = paramValues;
+	ckfree(paramLengths);
 
 	return TCL_OK;
 }
@@ -2927,6 +2928,7 @@ static int expand_parameters(Tcl_Interp *interp, const char *queryString, int nP
 	// Normal return, push parameters and return OK.
 	*paramValuesPtr = paramValues;
 	*newQueryStringPtr = newQueryString;
+	ckfree(paramLengths);
 	return TCL_OK;
 
 error_return:

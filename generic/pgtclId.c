@@ -304,7 +304,7 @@ PgSetConnectionId(Tcl_Interp *interp, PGconn *conn, char *chandle)
  *----------------------------------------------------------------------
  */
 int
-PgConnCmd(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[])
+PgConnCmd(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
 {
     int             optIndex;
     int             objvxi;
@@ -681,7 +681,7 @@ PgConnCmd(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[])
  *----------------------------------------------------------------------
  */
 int
-PgResultCmd(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[])
+PgResultCmd(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
 {
     int    objvxi;
     Tcl_Obj    *objvx[25];
@@ -1581,7 +1581,7 @@ PgDelResultHandle(ClientData cData)
 
 int
 Pg_copy_complete(ClientData cData, Tcl_Interp *interp, int objc,
-				 Tcl_Obj *CONST objv[])
+				 Tcl_Obj *const objv[])
 {
 	Pg_ConnectionId *connid;
 	PGconn	   *conn;

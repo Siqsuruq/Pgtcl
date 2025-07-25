@@ -2349,7 +2349,7 @@ Pg_lo_write(ClientData cData, Tcl_Interp *interp, int objc,
 	PGconn	   *conn;
 	char	   *buf;
 	int			fd;
-	int			nbytes = 0;
+	Tcl_Size	nbytes = 0;
 	int			len;
 	Pg_ConnectionId *connid;
 

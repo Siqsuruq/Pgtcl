@@ -599,7 +599,7 @@ int array_to_utf8(Tcl_Interp *interp, const char **paramValues, int *paramLength
 int build_param_array(Tcl_Interp *interp, int nParams, Tcl_Obj *const objv[], const char ***paramValuesPtr, const char **bufferPtr)
 {
 	const char **paramValues  = NULL;
-	int         *paramLengths = NULL;
+	Tcl_Size     *paramLengths = NULL;
 	int          param;
 
 	if(nParams == 0)
@@ -614,7 +614,7 @@ int build_param_array(Tcl_Interp *interp, int nParams, Tcl_Obj *const objv[], co
 	    if (strcmp(paramValues[param], "NULL") == 0)
             {
                 paramValues[param] = NULL;
-		paramLengths[param] = 0;
+				paramLengths[param] = 0;
             }
 	    else
 	    {
@@ -3284,7 +3284,7 @@ Pg_select(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
 			firstPass = 0;
 		}
 
-		int numTuples = PQntuples(result);
+		Tcl_Size numTuples = PQntuples(result);
 		if(tuplesVarObj)
 			Tcl_ObjSetVar2(interp, tuplesVarObj, NULL, Tcl_NewIntObj(numTuples), 0);
 
@@ -5187,7 +5187,8 @@ Pg_sql(ClientData cData, Tcl_Interp *interp, int objc,
     Tcl_Obj         **elemPtrs;
     Tcl_Obj         **elembinPtrs;
     int             i=3;
-    int             count=0, countbin=0, optIndex;
+	Tcl_Size        count = 0, countbin = 0;
+	int				optIndex;
     int             params=0,binparams=0,binresults=0,callback=0,async=0,prepared=0;
     unsigned char   flags = 0;
 

@@ -918,7 +918,7 @@ int Pg_sqlite_getDB(Tcl_Interp *interp, char *cmdName, sqlite3 **sqlite_dbPtr)
 
 // Main routine, extract the sqlite handle, parse the ensemble command, and run the subcommand.
 int
-Pg_sqlite(ClientData clientdata, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[])
+Pg_sqlite(ClientData clientdata, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[])
 {
         sqlite3            *sqlite_db;
 	int                 cmdIndex;

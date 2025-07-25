@@ -208,7 +208,7 @@ PgSetConnectionId(Tcl_Interp *interp, PGconn *conn, char *chandle)
         Tcl_Obj         *nsstr;
 	Pg_ConnectionId *connid;
 	int             i;
-        CONST char      *ns = "";
+        const char      *ns = "";
 
 	connid = (Pg_ConnectionId *) ckalloc(sizeof(Pg_ConnectionId));
 	connid->conn = conn;

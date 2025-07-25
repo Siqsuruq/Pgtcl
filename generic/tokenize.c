@@ -485,7 +485,7 @@ int handle_substitutions(Tcl_Interp *interp, const char *sql, char **newSqlPtr, 
 			}
 			case TK_TCLVAR: {
 				char *nameBuf = ckalloc(len);
-				int stringLength;
+                Tcl_Size stringLength;
 				Tcl_Obj *varObj = NULL;
 				int i;
 				int skip = 1;

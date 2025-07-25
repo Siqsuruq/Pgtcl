@@ -3,6 +3,6 @@
 
 #include <tcl.h>
 extern int Pg_sqlite(
-  ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *CONST objv[]);
+  ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *const objv[]);
 
 #endif

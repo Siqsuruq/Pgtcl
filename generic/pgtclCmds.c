@@ -540,7 +540,7 @@ Pg_disconnect(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *const obj
 ** allocates and returns buffer containing new strings in bufferPtr
 ** for later disposal.
 */
-int array_to_utf8(Tcl_Interp *interp, const char **paramValues, int *paramLengths, int nParams, const char **bufferPtr)
+int array_to_utf8(Tcl_Interp *interp, const char **paramValues, Tcl_Size *paramLengths, Tcl_Size nParams, const char **bufferPtr)
 {
 	int param;
 	int charsWritten;
@@ -4667,7 +4667,7 @@ Pg_escapeBytea(ClientData cData, Tcl_Interp *interp, int objc,
 {
         unsigned char    	*from;
         unsigned char           *to;
-        int                      fromLen;
+		Tcl_Size                      fromLen;
         size_t                   toLen;
 	PGconn	                *conn = NULL;
 	char                    *connString;

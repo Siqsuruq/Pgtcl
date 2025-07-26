@@ -457,7 +457,7 @@ int Pg_sqlite3GetToken(const char *z, enum sqltoken *tokenType){
 
 extern int array_to_utf8(Tcl_Interp *interp, const char **paramValues, int *paramLengths, int nParams, const char **bufferPtr);
 
-int handle_substitutions(Tcl_Interp *interp, const char *sql, char **newSqlPtr, const char ***replacementArrayPtr, int *replacementArrayLengthPtr, const char **bufferPtr)
+int handle_substitutions(Tcl_Interp *interp, const char *sql, char **newSqlPtr, const char ***replacementArrayPtr, Tcl_Size *replacementArrayLengthPtr, const char **bufferPtr)
 {
 	// Worst possible case, :a mapping to $99999 at the end of a really long string
 	char *newSql = ckalloc(strlen(sql)*3+1);

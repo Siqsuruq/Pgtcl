@@ -571,7 +571,7 @@ int array_to_utf8(Tcl_Interp *interp, const char **paramValues, Tcl_Size *paramL
 		tresult = Tcl_NewStringObj(errmsg, -1);
 		Tcl_AppendStringsToObj(tresult, paramValues[param], NULL);
 		if(errcode == TCL_CONVERT_NOSPACE) { // CAN'T HAPPEN, check anyway
-		    sprintf(errmsg, " (%d bytes needed, %d bytes available)", paramLengths[param], remaining);
+			sprintf(errmsg, " (%d bytes needed, %d bytes available)", (long)paramLengths[param], (long)remaining);
 		    Tcl_AppendStringsToObj(tresult, errmsg, NULL);
 		}
 		Tcl_SetObjResult(interp, tresult);
@@ -912,7 +912,7 @@ Pg_exec_prepared(ClientData cData, Tcl_Interp *interp, int objc, Tcl_Obj *const 
 
 	if(statementNameString) {
 		result = PQexecPrepared(conn, statementNameString, nParams, paramValues, NULL, NULL, 0);
-		ckfree(statementNameString);
+		ckfree((void*)statementNameString);
 		statementNameString = NULL;
 	}
 
@@ -3662,7 +3662,7 @@ Pg_sendquery(ClientData cData, Tcl_Interp *interp, int objc,
 	const char     **paramValues = NULL;
 	char		*paramArrayName = NULL;
 	const char      *paramsBuffer = NULL;
-	int              nParams;
+	Tcl_Size         nParams;
 	int              index;
 	int              useVariables = 0;
 
